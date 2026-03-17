@@ -1,73 +1,36 @@
-# hackaton-upm-2026
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Documentación y código para el hackaton de la UPM de 2026.
+## Getting Started
 
-# Guía de Uso de la API
-
-Se ha publicado una API para el consumo de los participantes del Hackaton que permite realizar dos acciones principales:
-- Obtener datos del clima.
-- Generar respuestas con un LLM.
-
-Y de manera adicional existen unos endpoints para registrarse y generar un "bearer token" que enviar con las peticiones a las acciones anteriores.
-
-## Autenticación
-
-Como se ha comentado antes, para acceder a los endpoints de `/weather` y `prompt`, es necesario registrarse e iniciar sesión para obtener un **Bearer Token**. Esto se puede hacer directamente a traves del navegador en [http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com](http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com), pero tambien mediante peticiones HTTP.
-
-Crea una cuenta para tu equipo.
-- **URL**: `POST /register`
-- **Body (Form Data)**: `nickName`, `teamName`, `password`
+First, run the development server:
 
 ```bash
-curl -X POST http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com/register \
-     -d "nickName=mi_usuario" \
-     -d "teamName=mi_equipo" \
-     -d "password=mi_password"
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Obtén el token de acceso.
-- **URL**: `POST /login`
-- **Body (Form Data)**: `nickName`, `password`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-curl -X POST http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com/login \
-     -d "nickName=mi_usuario" \
-     -d "password=mi_password"
-```
-*Nota: El servidor redirige al root con el token en la URL, pero el token se genera y valida mediante JWT.*
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Endpoints del Proyecto
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Obtener los datos del clima, que devuelve un JSON con datos meteorológicos de ejemplo.
-- **URL**: `GET /weather`
-- **Query Params**: `disaster=true|false` (opcional)
+## Learn More
 
-```bash
-curl -X GET "http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com/weather?disaster=false" \
-     -H "Authorization: Bearer <TU_TOKEN>"
-```
+To learn more about Next.js, take a look at the following resources:
 
-#### Enviar Prompt al LLM
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Envía instrucciones y una consulta al modelo de lenguaje (por debajo usa el servicio de AWS de Bedrock Knowledge Base).
-- **URL**: `POST /prompt`
-- **Body (JSON)**: `system_prompt`, `user_prompt`
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```bash
-curl -X POST http://ec2-54-171-51-31.eu-west-1.compute.amazonaws.com/prompt \
-     -H "Authorization: Bearer <TU_TOKEN>" \
-     -H "Content-Type: application/json" \
-     -d '{
-           "system_prompt": "Eres un asistente experto en meteorología.",
-           "user_prompt": "¿Qué precauciones debo tomar ante una lluvia de 800mm?"
-         }'
-```
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-# Web Progreso Hackaton
-hrank.onrender.com
-
-Utilizad el código de vuestro equipo para entrar.
-
-*Desarrollado para el Hackaton UPM 2026.*
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
