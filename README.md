@@ -43,7 +43,7 @@ Aplicación web de alertas meteorológicas para la Hackathon UPM 2026.
 
 ## Configuración
 
-Edita `.env` con tus credenciales (ver `SETUP.md` para más detalles).
+Edita `.env` con tus credenciales.
 
 Configura la base de datos
 ```bash
