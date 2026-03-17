@@ -20,7 +20,7 @@ Aplicación web de alertas meteorológicas para la Hackathon UPM 2026.
 
 Aplicación web de alertas meteorológicas para la Hackathon UPM 2026.
 
-## 👥 Equipo
+## Equipo
 
 - **Sandra Qiao Martínez**
 - **Guillermo España Jiménez**
@@ -43,14 +43,9 @@ Aplicación web de alertas meteorológicas para la Hackathon UPM 2026.
 
 ## Configuración
 
-1. **Configurar variables de entorno**
-```bash
-cp .env.example .env
-```
-
 Edita `.env` con tus credenciales (ver `SETUP.md` para más detalles).
 
-2. **Configurar base de datos**
+Configura la base de datos
 ```bash
 npx prisma generate
 npx prisma db push
