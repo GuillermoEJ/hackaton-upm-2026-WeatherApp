@@ -1,6 +1,6 @@
 <div align="center">
 
-# Next Digital
+# MeteoAlert
 
 ### Sistema de Alertas Meteorológicas · Version 1.0
 
